@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>FashionablyLate</title>
     <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
+    @yield('css')
     <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
 </head>
 
@@ -15,7 +16,7 @@
     <header class="header">
         <div class="header__inner">
             <a class="header__logo" href="/">
-                <h1>FashionablyLate</h1>
+                FashionablyLate
             </a>
         </div>
     </header>
