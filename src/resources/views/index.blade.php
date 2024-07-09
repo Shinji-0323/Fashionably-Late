@@ -19,7 +19,7 @@
             <div class="form__group-content">
                 <div class="form__input--text-inline">
                     <input class="form__input--name" type="text" name="last_name" placeholder="例: 山田" value="{{ old('last_name') }}" />
-                    <!--<input class="form__input--name" type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}" />-->
+                    <input class="form__input--name" type="text" name="first_name" placeholder="例: 太郎" value="{{ old('first_name') }}" />
                 </div>
                 <div class="form__error">
                 @error('name')
@@ -72,9 +72,11 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text-inline">
-                    <input class="form__input--name" type="tel" name="tel" placeholder="例: 080" value="{{ old('tel') }}" /><!---
-                    <input class="form__input--name" type="tel" name="tel2" placeholder="例: 1234" value="{{ old('tel2') }}" />-
-                    <input class="form__input--name" type="tel" name="tel3" placeholder="例: 5678" value="{{ old('tel3') }}" />-->
+                    <input class="form__input--name" type="tel" name="tel1" placeholder="例: 080" value="{{ old('tel1') }}" />
+                    -
+                    <input class="form__input--name" type="tel" name="tel2" placeholder="例: 1234" value="{{ old('tel2') }}" />
+                    -
+                    <input class="form__input--name" type="tel" name="tel3" placeholder="例: 5678" value="{{ old('tel3') }}" />
                 </div>
                 <div class="form__error">
                 @error('tel')

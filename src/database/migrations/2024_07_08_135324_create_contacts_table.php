@@ -16,6 +16,7 @@ class CreateContactsTable extends Migration
         Schema::create('contacts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('category_id')->nullable()->constrained()->cascadeOnDelete();
+            $table->string('first_name')->nullable();
             $table->string('last_name')->nullable();
             $table->tinyInteger('gender')->unsigned()->comment('性別:1=男性,2=女性,3=その他')->nullable();
             $table->string('email')->nullable();
