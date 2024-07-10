@@ -16,13 +16,22 @@
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">お名前</th>
                 <td class="confirm-table__text">
-                    <input type="text" name="full_name" value="{{ $contact['last_name']}}  {{ $contact['first_name'] }}" readonly />
+                    {{ $contact['last_name']}}  {{ $contact['first_name'] }}
+                    <input type="hidden" name="first_name" value="{{ $contact['first_name'] }} " readonly />
+                    <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}" readonly />
                 </td>
             </tr>
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">性別</th>
                 <td class="confirm-table__text">
-                    <input type="text" name="gender" value="{{ $contact['gender'] }}" readonly />
+                    <input type="hidden" name="gender" value="{{ $contact['gender'] }}" readonly />
+                    @if ($contact['gender'] == '1')
+                    {{'男性'}}
+                    @elseif ($contact['gender'] == '2')
+                    {{'女性'}}
+                    @else ($contact['gender'] == '3')
+                    {{'その他'}}
+                    @endif
                 </td>
             </tr>
             <tr class="confirm-table__row">

@@ -35,12 +35,12 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--radio">
-                    <input class="form__input--gender" id="men" type="radio" name="gender" value="1" checked>
-                    <label for="men" name="gender" value="1">男性</label>
-                    <input class="form__input--gender" id="women" type="radio" name="gender" value="2">
-                    <label for="women" name="gender" value="2">女性</label>
-                    <input class="form__input--gender" id="author" type="radio" name="gender" value="3">
-                    <label for="author" name="gender" value="3">その他</label>
+                    <input class="form__input--gender" id="men" type="radio" name="gender" value="1" {{ old('gender','男性') == '1' ? 'checked' : '' }} checked>
+                    <label for="men">男性</label>
+                    <input class="form__input--gender" id="women" type="radio" name="gender" value="2" {{ old('gender') == '2' ? 'checked' : '' }}>
+                    <label for="women">女性</label>
+                    <input class="form__input--gender" id="others" type="radio" name="gender" value="3" {{ old('gender') == '3' ? 'checked' : '' }}>
+                    <label for="others">その他</label>
                 </div>
                 <div class="form__error">
                 @error('gender')
@@ -79,7 +79,7 @@
                     <input class="form__input--name" type="tel" name="tel3" placeholder="例: 5678" value="{{ old('tel3') }}" />
                 </div>
                 <div class="form__error">
-                @error('tel')
+                @error('tel1')
                 {{ $message }}
                 @enderror
                 </div>
@@ -116,7 +116,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <select class="inquiry_type" name="detail" required>
+                    <select class="inquiry_type" name="detail">
                         <option value="">選択してください</option>
                         <option value="商品の交換について">商品の交換について</option>
                     </select>
@@ -135,7 +135,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <textarea class="form__input--name" name="content" placeholder="お問い合わせ内容をご記載ください" required value="{{ old('content') }}" ></textarea>
+                    <textarea class="form__input--name" name="content" placeholder="お問い合わせ内容をご記載ください" value="{{ old('content') }}" ></textarea>
                 </div>
                 <div class="form__error">
                 @error('content')

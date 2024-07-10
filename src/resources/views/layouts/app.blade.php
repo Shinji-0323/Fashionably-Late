@@ -18,6 +18,7 @@
             <a class="header__logo" href="/">
                 FashionablyLate
             </a>
+            @yield('nav')
         </div>
     </header>
 
