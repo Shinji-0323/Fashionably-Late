@@ -6,6 +6,8 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use App\Http\Requests\RegisterRequest;
 use App\Http\Requests\LoginRequest;
+use App\Models\Category;
+use App\Models\Contact;
 
 class AdminController extends Controller
 {
@@ -22,6 +24,8 @@ class AdminController extends Controller
 
     public function admin()
     {
-        return view('admin');
+        $contacts = Contact::with('category')->get();
++       $categories = Category::all();
+        return view('admin', compact('contacts', 'categories'));
     }
 }

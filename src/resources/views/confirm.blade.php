@@ -61,13 +61,24 @@
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">お問い合わせの種類</th>
                 <td class="confirm-table__text">
-                    <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly />
+                    <input type="hidden" name="detail" value="{{ $category_id }}" readonly />
+                    @if ($category_id == '1')
+                    {{'商品のお届けについて'}}
+                    @elseif ($category_id == '2')
+                    {{'商品の交換について'}}
+                    @elseif ($category_id == '3')
+                    {{'商品トラブル'}}
+                    @elseif ($category_id == '4')
+                    {{'ショップへのお問い合わせ'}}
+                    @else ($category_id == '5')
+                    {{'その他'}}
+                    @endif
                 </td>
             </tr>
             <tr class="confirm-table__row">
                 <th class="confirm-table__header">お問い合わせ内容</th>
                 <td class="confirm-table__text">
-                    <input type="text" name="content" value="{{ $contact['content'] }}" readonly />
+                    <input type="text" name="content" value="{{ $contact['detail'] }}" readonly />
                 </td>
             </tr>
             </table>
