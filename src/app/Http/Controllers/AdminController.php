@@ -25,7 +25,8 @@ class AdminController extends Controller
     public function admin()
     {
         $contacts = Contact::with('category')->get();
-+       $categories = Category::all();
-        return view('admin', compact('contacts', 'categories'));
+        $categories = Category::all();
+        $admins =  Contact::simplePaginate(7);
+        return view('admin', compact('contacts', 'categories','admins'));
     }
 }

@@ -44,7 +44,7 @@
             </div>
             <div class="form__group-content">
                 <div class="form__input--text">
-                    <input type="password" name="password" placeholder="例: coachtech1106" value="{{ old('name') }}"/>
+                    <input type="password" name="password" placeholder="例: coachtech1106"/>
                 </div>
                 <div class="form__error">
                     @error('password')
