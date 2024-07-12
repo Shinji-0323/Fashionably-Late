@@ -17,15 +17,13 @@ class ContactController extends Controller
     }
     public function confirm(ContactRequest $request)
     {
-        dd($request->all());
         $tel = $request['tel1'] . $request['tel2'] . $request['tel3'];
         $contact = $request->only(['last_name', 'first_name', 'gender', 'email', 'address', 'building', 'category_id', 'detail']);
         return view('confirm', compact('contact','tel'));
     }
     public function store(Request $request)
     {
-        dd($request->all());
-        $contact = $request->only(['first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'category_id', 'detail']);
+        $contact = $request->only(['category_id', 'first_name', 'last_name', 'gender', 'email', 'tel', 'address', 'building', 'detail']);
         Contact::create($contact);
         return view('thanks');
     }
