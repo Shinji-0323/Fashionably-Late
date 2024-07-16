@@ -1,53 +1,35 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f9f9f9;
-    margin: 0;
-    padding: 0;
+.header {
+    display: none;
+}
+
+.thanks-page {
     display: flex;
-    justify-content: center;
     align-items: center;
+    justify-content: center;
     height: 100vh;
-    color: #5a5a5a;
 }
 
-.thank-you-container {
-    text-align: center;
-    width: 1512px;
-    background: rgba(255, 255, 255, 1);;
+.thanks-page__message {
+    font-weight: bold;
+    font-size: 24px;
 }
 
-.message {
-    background-color: #ffffff;
-    padding: 40px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+.thanks-page__btn {
+    margin: 32px auto 0;
 }
 
-h1 {
-    font-size: 280px;
-    color: rgba(139, 121, 105, 0.05);
-    margin: 0;
+.thanks-page-bg__inner {
     position: absolute;
+    top: 50%;
     left: 50%;
-    top: 40%;
-    transform: translate(-50%, -50%);
     z-index: -1;
+    width: 100%;
+    text-align: center;
+    font-family: serif;
+    opacity: 0.05;
+    transform: translate(-50%, -50%);
 }
 
-.message p {
-    font-size: 30px;
-    margin: 20px 0;
-    color: rgba(139, 121, 105, 1);
-}
-
-.home-button {
-    display: inline-block;
-    padding: 10px 20px;
-    color: #ffffff;
-    text-decoration: none;
-    border-radius: 4px;
-    background: rgba(130, 117, 106, 1);
-}
-
-.home-button:hover {
-    background-color: #333333;
+.thanks-page-bg__text {
+    font-size: 18vw;
 }

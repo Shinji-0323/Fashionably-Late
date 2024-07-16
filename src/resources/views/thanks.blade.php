@@ -1,23 +1,19 @@
-<!DOCTYPE html>
-<html lang="ja">
+@extends('layouts.app')
 
-<head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Thank you</title>
-    <link rel="stylesheet" href="{{ asset('css/sanitize.css') }}" />
-    <link rel="stylesheet" href="{{ asset('css/thanks.css') }}" />
-</head>
+@section('css')
+<link rel="stylesheet" href="{{ asset('css/thanks.css')}}">
+@endsection
 
-<body>
-    <div class="thank-you-container">
-        <div class="message">
-            <h1>Thank you</h1>
-            <p>お問い合わせありがとうございました</p>
-            <a href="{{ url('/') }}" class="home-button">HOME</a>
-        </div>
+@section('content')
+<div class="thanks-page">
+    <div class="thanks-page__inner">
+        <p class="thanks-page__message">お問い合わせありがとうございました</p>
+        <form class="thanks-page__form" action="/" method="get">
+            <button class="thanks-page__btn btn">HOME</button>
+        </form>
     </div>
-</body>
-
-</html>
+</div>
+<div class="thanks-page-bg__inner">
+    <span class="thanks-page-bg__text">Thank you</span>
+</div>
+@endsection

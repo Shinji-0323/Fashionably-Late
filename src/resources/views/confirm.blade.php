@@ -5,88 +5,73 @@
 @endsection
 
 @section('content')
-<div class="confirm__content">
-    <div class="confirm__heading">
-        <h2>Confirm</h2>
-    </div>
-    <form class="form" action="/thanks" method="post">
-        @csrf
-        <input type="hidden" name="category_id" value="{{ $contact['category_id'] }}" readonly />
-        <div class="confirm-table">
-            <table class="confirm-table__inner">
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">お名前</th>
-                <td class="confirm-table__text">
-                    {{ $contact['last_name']}}  {{ $contact['first_name'] }}
-                    <input type="hidden" name="first_name" value="{{ $contact['first_name'] }} " readonly />
-                    <input type="hidden" name="last_name" value="{{ $contact['last_name'] }}" readonly />
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">性別</th>
-                <td class="confirm-table__text">
-                    <input type="hidden" name="gender" value="{{ $contact['gender'] }}" readonly />
-                    @if ($contact['gender'] == '1')
-                    {{'男性'}}
-                    @elseif ($contact['gender'] == '2')
-                    {{'女性'}}
-                    @else ($contact['gender'] == '3')
-                    {{'その他'}}
-                    @endif
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">メールアドレス</th>
-                <td class="confirm-table__text">
-                    <input type="email" name="email" value="{{ $contact['email'] }}" readonly />
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">電話番号</th>
-                <td class="confirm-table__text">
-                    <input type="tel" name="tel" value="{{ $tel }}" readonly />
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">住所</th>
-                <td class="confirm-table__text">
-                    <input type="text" name="address" value="{{ $contact['address'] }}" readonly />
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">建物名</th>
-                <td class="confirm-table__text">
-                    <input type="text" name="building" value="{{ $contact['building'] }}" readonly />
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">お問い合わせの種類</th>
-                <td class="confirm-table__text">
-                    @if ($contact['category_id'] == '1')
-                    {{'商品のお届けについて'}}
-                    @elseif ($contact['category_id'] == '2')
-                    {{'商品の交換について'}}
-                    @elseif ($contact['category_id'] == '3')
-                    {{'商品トラブル'}}
-                    @elseif ($contact['category_id'] == '4')
-                    {{'ショップへのお問い合わせ'}}
-                    @else ($contact['category_id'] == '5')
-                    {{'その他'}}
-                    @endif
-                </td>
-            </tr>
-            <tr class="confirm-table__row">
-                <th class="confirm-table__header">お問い合わせ内容</th>
-                <td class="confirm-table__text">
-                    <input type="text" name="detail" value="{{ $contact['detail'] }}" readonly />
-                </td>
-            </tr>
+<div class="confirm-form">
+    <h2 class="confirm-form__heading content__heading">Confirm</h2>
+    <div class="confirm-form__inner">
+        <form action="/thanks" method="post">
+            @csrf
+            <table class="confirm-form__table">
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">お名前</th>
+                    <td class="confirm-form__data">
+                        {{ $contacts['first_name'] }}&nbsp;{{ $contacts['last_name'] }}
+                        <input type="hidden" name="first_name" value="{{ $contact['first_name'] }} " />
+                        <input type="hidden" name="last_name" value="{{ $contacts['last_name'] }}" />
+                    </td>
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">性別</th>
+                    <td class="confirm-form__data">
+                        @if ($contact['gender'] == 1)
+                        {{'男性'}}
+                        @elseif ($contact['gender'] == 2)
+                        {{'女性'}}
+                        @else
+                        その他
+                        @endif
+                    </td>
+                    <input type="hidden" name="gender" value="{{ $contacts['gender'] }}" readonly />
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">メールアドレス</th>
+                    <td class="confirm-form__data">{{ $contacts['email'] }}</td>
+                        <input type="hidden" name="email" value="{{ $contact['email'] }}" readonly />
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">電話番号</th>
+                    <td class="confirm-form__data">{{ $contacts['tel_1'] }}{{ $contacts['tel_2'] }}{{ $contacts['tel_3'] }}</td>
+                    <input type="hidden" name="tel_1" value="{{ $contacts['tel_1'] }}" />
+                    <input type="hidden" name="tel_2" value="{{ $contacts['tel_2'] }}" />
+                    <input type="hidden" name="tel_3" value="{{ $contacts['tel_3'] }}" />
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">住所</th>
+                    <td class="confirm-form__data">{{ $contacts['address'] }}
+                    </td>
+                    <input type="hidden" name="address" value="{{ $contact['address'] }}" />
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">建物名</th>
+                    <td class="confirm-form__data">{{ $contacts['building'] }}
+                    </td>
+                    <input type="hidden" name="building" value="{{ $contact['building'] }}" />
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">お問い合わせの種類</th>
+                    <td class="confirm-form__data">{{ $category->content }}</td>
+                    <input type="hidden" name="category_id" value="{{ $contacts['category_id'] }}">
+                </tr>
+                <tr class="confirm-form__row">
+                    <th class="confirm-form__label">お問い合わせ内容</th>
+                    <td class="confirm-form__data">{{ $contacts['detail'] }}</td>
+                    <input type="hidden" name="detail" value="{{ $contact['detail'] }}" />
+                </tr>
             </table>
-        </div>
-        <div class="form__button">
-            <button class="form__button-submit" type="submit">送信</button>
-        </div>
-    </form>
-    <button type="button" onclick="history.back()">修正</button>
+            <div class="confirm-form__btn-inner">
+                <input class="confirm-form__send-btn btn" type="submit" value="送信" name="send">
+                <input class="confirm-form__back-btn" type="submit" value="修正" name="back">
+            </div>
+        </form>
+    </div>
 </div>
 @endsection

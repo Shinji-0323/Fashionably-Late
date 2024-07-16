@@ -11,20 +11,16 @@
     <link rel="stylesheet" href="{{ asset('css/common.css') }}" />
 </head>
 
-
 <body>
-    <header class="header">
-        <div class="header__inner">
-            <a class="header__logo" href="/">
-                FashionablyLate
-            </a>
-            @yield('nav')
-        </div>
-    </header>
-
-    <main>
+    <div class="app">
+        <header class="header">
+        <h1 class="header__heading">FashionablyLate</h1>
+        @yield('link')
+        </header>
+        <div class="content">
         @yield('content')
-    </main>
+        </div>
+    </div>
 </body>
 
 </html>
