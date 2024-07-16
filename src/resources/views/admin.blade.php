@@ -48,7 +48,7 @@
                 @csrf
                 <input class="export__btn btn" type="submit" value="エクスポート">
             </form>
-            {{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}
+            <!--{{ $contacts->appends(request()->query())->links('vendor.pagination.custom') }}-->
         </div>
 
         <table class="admin__table">
