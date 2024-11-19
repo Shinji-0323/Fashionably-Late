@@ -14,9 +14,9 @@
 ## アプリケーション URL
 
 ### 開発環境
-- ローカル：http://localhost
+- ローカル：http://localhost  
   アプリケーションにアクセスするためのURL。
-- phpMyAdmin：http://localhost:8080/
+- phpMyAdmin：http://localhost:8080/  
   データベースを管理するためのツール。
 
 ## 機能一覧
